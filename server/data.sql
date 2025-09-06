@@ -14,3 +14,6 @@ CREATE TABLE users(
 
 DESC users;
 
+DROP TABLE users;
+
+SELECT * FROM users;

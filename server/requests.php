@@ -7,23 +7,26 @@ include("../common/db.php");
 
 // for signup
 if (isset($_POST['signup'])) {
-     $username = $_POST['username'];
+    $username = $_POST['username'];
     $email = $_POST['email'];
     $address = $_POST['address'];
-    $password = $_POST['password'];
+    $password = sha1($_POST['password']);
 
     $user = $conn->prepare("INSERT INTO `users`
     (`username`,`email`,`address`,`password`) VALUES
-    ('$username','$email','$address',$password)    
+    ('$username','$email','$address','$password')    
     ");
     $result = $user->execute();
 
     // 
-    if($result){
+    if ($result) {
         echo "User added successfully!";
-        $_SESSION['user'] = ["username"=>$username, "email"=>$email]; 
-        header('location : /queries');
-    }else{
+        $_SESSION['user'] = ["username" => $username, "email" => $email];
+        header('location: /queries/index.php');
+    } else {
         echo "some error occured!!";
     }
+}
+// for sign in
+elseif (isset($_POST['signin'])) {
 }
