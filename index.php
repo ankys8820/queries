@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,11 +20,12 @@
     include('client/headers.php');
 
     // routing mannualy
-    if (isset($_GET['signup'])) {
+    if (isset($_GET['signup']) && !$_SESSION['user']['username']) {
         include('client/signup.php');
-    } elseif (isset($_GET['signin'])) {
+    } elseif (isset($_GET['signin']) && !$_SESSION['user']['username']) {
         include('client/signin.php');
     }
+    
 
 
     ?>

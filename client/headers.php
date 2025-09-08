@@ -4,8 +4,21 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" href="./">Home</a>
-                <a class="nav-link" href="?signin=true">Login</a>
-                <a class="nav-link" href="?signup=true">Signup</a>
+                <!-- If user and username is available in session. -->
+                <?php if (!$_SESSION['user']['username']) { ?>
+                    <a class="nav-link" href="?signin=true">Login</a>
+                    <a class="nav-link" href="?signup=true">Signup</a>
+
+                <?php } ?>
+
+
+
+                <?php if ($_SESSION['user']['username']) { ?>
+                    <a class="nav-link" href="?signup=true">Logout</a>
+
+                <?php } ?>
+
+
                 <a class="nav-link" href="#">Category</a>
                 <a class="nav-link" href="#">Latest Queries</a>
 

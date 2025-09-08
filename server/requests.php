@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 // for all the requests
 
 include("../common/db.php");
@@ -21,7 +23,6 @@ if (isset($_POST['signup'])) {
     // 
     if ($result) {
         echo "User added successfully!";
-        $_SESSION['user'] = ["username" => $username, "email" => $email];
         header('location: /queries/index.php');
     } else {
         echo "some error occured!!";
@@ -29,4 +30,8 @@ if (isset($_POST['signup'])) {
 }
 // for sign in
 elseif (isset($_POST['signin'])) {
+    $email = $_POST['email'];
+    $password = sha1($_POST['password']);
+
+    echo $query = "SELECT * FROM `users` WHERE `email`='$email' AND `password='$password'`";
 }
