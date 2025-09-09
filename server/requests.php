@@ -23,6 +23,7 @@ if (isset($_POST['signup'])) {
     // 
     if ($result) {
         echo "User added successfully!";
+        $_SESSION['user'] = ["username" => $username, "email" => $email];
         header('location: /queries/index.php');
     } else {
         echo "some error occured!!";
@@ -35,3 +36,5 @@ elseif (isset($_POST['signin'])) {
 
     echo $query = "SELECT * FROM `users` WHERE `email`='$email' AND `password='$password'`";
 }
+
+// for signuot

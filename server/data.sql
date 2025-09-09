@@ -20,4 +20,4 @@ SELECT * FROM users;
 
 -- checking login
 
-SELECT * FROM users WHERE email='testing@gmail.com' AND password='7c4a8d09ca3762af61e59520943dc26494f8941b'; 
+SELECT * FROM users WHERE email='ankit@admin.com' AND password='7c4a8d09ca3762af61e59520943dc26494f8941b'; 

@@ -25,7 +25,8 @@ session_start();
     } elseif (isset($_GET['signin']) && !$_SESSION['user']['username']) {
         include('client/signin.php');
     }
-    
+
+    // echo  $_SESSION['user']['username'];
 
 
     ?>
