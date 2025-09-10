@@ -1,6 +1,12 @@
 <?php
 
 session_start();
+
+// error_reporting(e_all);
+// to fix the wannings on Windows.
+ini_set('display_errors', 0);
+
+
 ?>
 
 <!DOCTYPE html>

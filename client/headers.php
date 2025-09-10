@@ -15,7 +15,7 @@
 
                 <?php if ($_SESSION['user']['username']) { ?>
                     <form action="./server/requests.php" method="post">
-                        <a class="nav-link" name="logout" href="?signup=true">Logout</a>
+                        <a class="nav-link" name="logout" href="./server/requests.php?logout=true">Logout</a>
                     </form>
                 <?php } ?>
 

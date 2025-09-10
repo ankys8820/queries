@@ -34,7 +34,30 @@ elseif (isset($_POST['signin'])) {
     $email = $_POST['email'];
     $password = sha1($_POST['password']);
 
-    echo $query = "SELECT * FROM `users` WHERE `email`='$email' AND `password='$password'`";
-}
+    $username = "";
 
+    $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+
+    $result = $conn->query($query);
+
+    if ($result->num_rows == 1) {
+        foreach ($result as $row) {
+            // print_r($row);
+            $username = $row['username'];
+        }
+        // echo $username;
+        $_SESSION['user'] = ["username" => $username, "email" => $email];
+        header('location: /queries/index.php');
+    } else {
+        echo "some error occured!!";
+    }
+}
 // for signuot
+elseif (isset($_GET['logout'])) {
+    // 
+    session_unset();
+    // 
+    session_destroy();
+    // 
+    header("location: /queries");
+}
