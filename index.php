@@ -30,6 +30,8 @@ ini_set('display_errors', 0);
         include('client/signup.php');
     } elseif (isset($_GET['signin']) && !$_SESSION['user']['username']) {
         include('client/signin.php');
+    } elseif (isset($_GET['ask'])) {
+        include('client/ask.php');
     }
 
     // echo  $_SESSION['user']['username'];

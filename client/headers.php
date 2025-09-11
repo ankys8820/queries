@@ -17,6 +17,9 @@
                     <form action="./server/requests.php" method="post">
                         <a class="nav-link" name="logout" href="./server/requests.php?logout=true">Logout</a>
                     </form>
+
+                    <a class="nav-link" href="?ask=true">Ask a Question</a>
+
                 <?php } ?>
 
 
