@@ -20,7 +20,7 @@ WHERE email = 'testing@gmail.com'
 -- Category List Table
 CREATE TABLE category(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50)
+    name VARCHAR(50) NOT NULL
 );
 SHOW TABLES;
 INSERT INTO category(name)
@@ -30,3 +30,14 @@ VALUES ('Mobile'),
     ('Linux');
         
 SELECT * FROM category;
+
+-- ASK QUESTION
+CREATE TABLE questions(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    category_id INT NOT NULL,
+    user_id INT NOT NULL,
+   FOREIGN KEY (category_id) REFERENCES category(category_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+); 

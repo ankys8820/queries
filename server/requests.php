@@ -20,10 +20,11 @@ if (isset($_POST['signup'])) {
     ");
     $result = $user->execute();
 
+    // echo $user->insert_id;
     // 
     if ($result) {
         echo "User added successfully!";
-        $_SESSION['user'] = ["username" => $username, "email" => $email];
+        // $_SESSION['user'] = ["username" => $username, "email" => $email,"user_id"=>$user->insert_id];
         header('location: /queries/index.php');
     } else {
         echo "some error occured!!";
@@ -35,6 +36,7 @@ elseif (isset($_POST['signin'])) {
     $password = sha1($_POST['password']);
 
     $username = "";
+    $user_id = 0;
 
     $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
 
@@ -44,15 +46,16 @@ elseif (isset($_POST['signin'])) {
         foreach ($result as $row) {
             // print_r($row);
             $username = $row['username'];
+            $user_id = $row['id'];
         }
         // echo $username;
-        $_SESSION['user'] = ["username" => $username, "email" => $email];
+        $_SESSION['user'] = ["username" => $username, "email" => $email,"user_id"=>$user_id];
         header('location: /queries/index.php');
     } else {
         echo "some error occured!!";
     }
 }
-// for signuot
+// for signout
 elseif (isset($_GET['logout'])) {
     // 
     session_unset();
@@ -60,4 +63,12 @@ elseif (isset($_GET['logout'])) {
     session_destroy();
     // 
     header("location: /queries");
+}
+// for Ask Question
+elseif(isset($_POST['ask'])){
+    print_r($_POST);
+    print_r($_SESSION);
+
+    // $title
+
 }

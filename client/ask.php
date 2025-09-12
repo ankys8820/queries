@@ -22,7 +22,7 @@
 
 
         <div class="sm-3 col-6 offset-sm-3 margin-bottom-15">
-            <button type="submit" name="signin" class="btn btn-dark">Submit</button>
+            <button type="submit" name="ask" class="btn btn-dark">Ask Question</button>
         </div>
     </form>
 
