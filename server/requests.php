@@ -49,7 +49,7 @@ elseif (isset($_POST['signin'])) {
             $user_id = $row['id'];
         }
         // echo $username;
-        $_SESSION['user'] = ["username" => $username, "email" => $email,"user_id"=>$user_id];
+        $_SESSION['user'] = ["username" => $username, "email" => $email, "user_id" => $user_id];
         header('location: /queries/index.php');
     } else {
         echo "some error occured!!";
@@ -65,10 +65,34 @@ elseif (isset($_GET['logout'])) {
     header("location: /queries");
 }
 // for Ask Question
-elseif(isset($_POST['ask'])){
-    print_r($_POST);
-    print_r($_SESSION);
+elseif (isset($_POST['ask'])) {
+    // print_r($_POST);
+    // print_r($_SESSION);
 
-    // $title
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $category_id = $_POST['category'];
+    $user_id = $_SESSION['user']['user_id'];
 
+
+
+    $question = $conn->prepare("INSERT INTO `questions`(`title`,`description`,`category_id`,`user_id`) VALUES ('$title','$description','$category_id','$user_id')");
+
+
+
+
+
+    $result = $question->execute();
+
+
+    $question->insert_id;
+
+    if ($result) {
+        header("location: /queries");
+    } else {
+        // echo "Some error occured in adding question";
+        echo $conn;
+
+        die(mysqli_error($conn));
+    }
 }

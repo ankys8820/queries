@@ -28,9 +28,8 @@ VALUES ('Mobile'),
     ('Tech'),
     ('Coding'),
     ('Linux');
-        
-SELECT * FROM category;
-
+SELECT *
+FROM category;
 -- ASK QUESTION
 CREATE TABLE questions(
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -38,6 +37,17 @@ CREATE TABLE questions(
     description TEXT NOT NULL,
     category_id INT NOT NULL,
     user_id INT NOT NULL,
-   FOREIGN KEY (category_id) REFERENCES category(category_id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-); 
+    FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+DROP TABLE questions;
+
+DESC questions;
+
+INSERT INTO questions(title,description,category_id,user_id) VALUES ('Can anyone teach php oops ?',' Can anyone teach php oops ?','3','1');
+
+SELECT * FROM questions;
+
+
+
