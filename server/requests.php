@@ -95,4 +95,9 @@ elseif (isset($_POST['ask'])) {
 
         die(mysqli_error($conn));
     }
+} elseif (isset($_POST['answer'])) {
+
+    print_r($_POST);
+    $user_id = $_SESSION['user']['user_id'];
+    echo "User id : " . $user_id;
 }

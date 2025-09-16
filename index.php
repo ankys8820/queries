@@ -32,6 +32,11 @@ ini_set('display_errors', 0);
         include('client/signin.php');
     } elseif (isset($_GET['ask'])) {
         include('client/ask.php');
+    } elseif (isset($_GET['q-id'])) {
+        $qid = $_GET['q-id'];
+        include('client/question-details.php');
+    } else {
+        include('client/questions.php');
     }
 
     // echo  $_SESSION['user']['username'];

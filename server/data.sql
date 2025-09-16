@@ -40,14 +40,15 @@ CREATE TABLE questions(
     FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-
 DROP TABLE questions;
-
 DESC questions;
-
-INSERT INTO questions(title,description,category_id,user_id) VALUES ('Can anyone teach php oops ?',' Can anyone teach php oops ?','3','1');
-
-SELECT * FROM questions;
-
-
-
+INSERT INTO questions(title, description, category_id, user_id)
+VALUES (
+        'Can anyone teach php oops ?',
+        ' Can anyone teach php oops ?',
+        '3',
+        '1'
+    );
+SELECT *
+FROM questions;
+-- answer table
