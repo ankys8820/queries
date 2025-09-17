@@ -99,5 +99,19 @@ elseif (isset($_POST['ask'])) {
 
     print_r($_POST);
     $user_id = $_SESSION['user']['user_id'];
-    echo "User id : " . $user_id;
+    // echo "User id : " . $user_id;
+    $answer = $_POST['answer'];
+    $question_id = $_POST['question_id'];
+
+    $sql = $conn->prepare("INSERT INTO `answers`(`answers`,`question_id`,`user_id`) VALUES (' $answer','$question_id','$user_id')");
+
+    $result = $sql->execute();
+
+    if ($result) {
+        header("location: /queries/?q-id=$question_id");
+    } else {
+        echo $conn;
+
+        die(mysqli_error($conn));
+    }
 }

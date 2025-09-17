@@ -14,7 +14,7 @@
           </h4>
          <p class='margin-bottom-15'> Description : " . $row['description'] . "</p>
     ";
-
+        include('answers.php');
         ?>
         <form action="./server/requests.php" method="post">
             <input type="hidden" name="question_id" value="<?php echo $qid ?>">

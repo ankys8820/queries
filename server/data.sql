@@ -52,3 +52,16 @@ VALUES (
 SELECT *
 FROM questions;
 -- answer table
+-- id, answer, question_id, user_id
+CREATE TABLE answers(
+    id INT AUTO_INCREMENT,
+    answers TEXT NOT NULL,
+    question_id INT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+--
+SELECT * FROM answers; 
+
