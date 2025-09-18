@@ -20,10 +20,11 @@
 
                     <a class="nav-link" href="?ask=true">Ask a Question</a>
 
-                <?php } ?>
+               
 
 
-                <a class="nav-link" href="#">Category</a>
+                <a class="nav-link" href="?add-cat=true">Category</a>
+                 <?php } ?>
                 <a class="nav-link" href="#">Latest Queries</a>
 
             </div>

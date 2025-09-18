@@ -97,7 +97,7 @@ elseif (isset($_POST['ask'])) {
     }
 } elseif (isset($_POST['answer'])) {
 
-    print_r($_POST);
+    // print_r($_POST);
     $user_id = $_SESSION['user']['user_id'];
     // echo "User id : " . $user_id;
     $answer = $_POST['answer'];
@@ -114,4 +114,19 @@ elseif (isset($_POST['ask'])) {
 
         die(mysqli_error($conn));
     }
+}
+elseif(isset($_POST['cat'])){
+    print_r($_POST);
+    $cat_name = $_POST['cat_name'];
+    $cat_new = $conn->prepare("INSERT INTO `category`(`name`) VALUES ('$cat_name')");
+
+    $result = $cat_new->execute();
+     if ($result) {
+        header("location: /queries/?add-cat=true");
+    } else {
+        echo $conn;
+
+        die(mysqli_error($conn));
+    }
+
 }

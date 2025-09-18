@@ -1,7 +1,9 @@
 <div class="container">
-  <h2 class="heading">Questions</h2>
+ 
 
+<div class="row">
   <div class="col-8">
+     <h2 class="heading">Questions</h2>
 
     <?php
     include("./common/db.php");
@@ -21,5 +23,11 @@
         </div>";
     }
     ?>
+  </div>
+  <div class="col-4">
+    <?php 
+    include('categorieslist.php');
+    ?>
+  </div>
   </div>
 </div>

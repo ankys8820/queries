@@ -3,7 +3,7 @@
 session_start();
 
 // error_reporting(e_all);
-// to fix the wannings on Windows.
+// to fix the unwanted wannings on Windows.
 ini_set('display_errors', 0);
 
 
@@ -35,7 +35,10 @@ ini_set('display_errors', 0);
     } elseif (isset($_GET['q-id'])) {
         $qid = $_GET['q-id'];
         include('client/question-details.php');
-    } else {
+    }elseif(isset($_GET['add-cat']) ){
+        include('client/add-categories.php');
+    } 
+    else {
         include('client/questions.php');
     }
 
